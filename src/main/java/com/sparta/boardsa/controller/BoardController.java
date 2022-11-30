@@ -21,7 +21,7 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("api/boards")
+    @GetMapping("api/board")
     public List<Board> getBoards() {
         return boardService.getBoards();
     }
