@@ -25,20 +25,4 @@ public class BoardSaApplication {
     public static void main(String[] args) {
         SpringApplication.run(BoardSaApplication.class, args);
     }
-
-    @Resource
-    private BoardRepository boardRepository;
-
-    @Bean
-    public ApplicationRunner applicationRunner() {
-        return args -> {
-            File json = ResourceUtils.getFile("classpath:BoardData.json");
-
-            List<BoardRequestDto> list = new ObjectMapper().readValue(json, new TypeReference<>(){});
-            List<Board> boards = list.stream().map(Board::new).collect(Collectors.toCollection(ArrayList::new));
-
-            boardRepository.saveAll(boards);
-        };
-    }
-
 }

@@ -4,10 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-public class BoardRequestDto {
-    private String contents;
-    private String title;
+public class CommentRequestDto {
+    private String comment;
 }
